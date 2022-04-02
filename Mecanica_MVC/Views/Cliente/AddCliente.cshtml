@@ -1,0 +1,31 @@
+﻿@model Mecanica_MVC.Models.Cliente
+@{
+    ViewData["Title"] = "Cliente";
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p>Formulário de clientes</p>
+</div>
+
+<div class="row">
+    <div class="col"> 
+        <div class="container-fluid bg-info">
+            <form name="ClienteForm" asp-action="Cliente">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="Name"class="form-label text-white">Nome:</label>
+                        <input type="text" class="form-control" id="Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Name" class="form-label text-white">Telefone:</label>
+                        <input type="tel" class="form-control" id="Name" pattern="(99)99999-9999">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary float-right" asp-controller="Home" asp-action="Index">Adicionar</button>
+            </form>
+        </div>
+    </div>
+</div>
