@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Mecanica_MVC.Data;
 using Microsoft.EntityFrameworkCore;
+using Mecanica_MVC.Repository;
 
 namespace Mecanica_MVC
 {
@@ -29,6 +30,8 @@ namespace Mecanica_MVC
             services.AddDbContext<SqlContext>(options => options.UseSqlServer("Server=.;Database=MecanicaMVC;Integrated Security=true;"));
 
             services.AddControllersWithViews();
+
+            services.AddScoped<ClienteRepository, ClienteRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
