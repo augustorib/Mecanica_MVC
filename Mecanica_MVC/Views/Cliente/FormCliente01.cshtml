@@ -1,0 +1,43 @@
+﻿@model Mecanica_MVC.Models.Cliente
+@{
+    ViewData["Title"] = " Adicionar Cliente";
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p>Formulário de clientes</p>
+</div>
+
+<div class="row">
+    <div class="col"> 
+        <div class="container-fluid bg-info">
+            <form method="post">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label asp-for="Nome" class="form-label text-white">Nome:</label>
+                        <input asp-for="Nome" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Telefone" class="form-label text-white">Telefone:</label>
+                        <input asp-for="Telefone" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label asp-for="Email" class="form-label text-white">Email:</label>
+                        <input asp-for="Email" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Carro" class="form-label text-white">Carro:</label>
+                        <input asp-for="Carro" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary " value="Adicionar Cliente">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
