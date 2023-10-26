@@ -13,5 +13,6 @@ namespace Mecanica_MVC.Data
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<Servico> Servico { get; set; }
+        public DbSet<ServicosMecanica> ServicosMecanicas { get; set;}
     }
 }

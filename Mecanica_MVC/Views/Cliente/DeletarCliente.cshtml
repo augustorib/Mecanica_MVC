@@ -1,0 +1,27 @@
+﻿@model Mecanica_MVC.Models.ClienteModel
+@{
+    ViewData["Title"] = "Remover Cliente";
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class ="row">
+    <div class="col">
+        <div class="container-fluid">
+            <div class="form-group row">
+                <label class="col-form-label">@Html.DisplayNameFor(model => model.Nome)</label>
+                <input class="form-control" type="text" disabled value="@Html.DisplayFor(model => model.Nome)">
+
+                <label class="col-form-label">@Html.DisplayNameFor(model => model.Telefone)</label>
+                <input class="form-control" type="text" disabled value="@Html.DisplayFor(model => model.Telefone)">
+
+
+                <label class="col-form-label">@Html.DisplayNameFor(model => model.Email)</label>
+                <input class="form-control" type="text"  value="@Html.DisplayFor(model => model.Email)" disabled>
+
+
+                <label class="col-form-label">@Html.DisplayNameFor(model => model.Carro)</label>
+                <input class="form-control" type="text"  value="@Html.DisplayFor(model => model.Carro)" disabled>
+            </div>
+        </div>
+    </div>
+</div>

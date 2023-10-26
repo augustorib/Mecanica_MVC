@@ -1,6 +1,7 @@
 ﻿using Mecanica_MVC.Data;
 using Mecanica_MVC.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -74,20 +75,43 @@ namespace Mecanica_MVC.Repository
 
         }
 
-        //public List<Cliente> DataSource()
-        //{
-        //    List<Cliente> lista = new List<Cliente>();
+        public void RemoverCliente(Guid id)
+        {
+          var removerCliente = _context.Cliente.FirstOrDefault(obj => obj.ID == id);
+            
+          if(removerCliente != null)
+          {
+            _context.Cliente.Remove(removerCliente);
+            _context.SaveChanges();
+          }
 
-        //    var cliente = new Cliente("Jurandir", "99999-9999", "jurandir@gmail.com", "Prisma");
-        //    var cliente2 = new Cliente("Jurandir2", "88888-9999", "jurandir2@gmail.com", "Toyota");
-        //    var cliente3 = new Cliente("Jurandir3", "77777-9999", "jurandir3@gmail.com", "Gol");
+        }
 
-        //    lista.Add(cliente);
-        //    lista.Add(cliente2);
-        //    lista.Add(cliente3);
+        public Cliente BuscarClientePorID(Guid id)
+        {
+            var buscarCliente = _context.Cliente.FirstOrDefault(obj => obj.ID == id);
 
-        //    return lista;
-        //}
+            if(buscarCliente != null)
+            {
+                return buscarCliente;
+            }
+
+            return null;
+        }
+
+        public void AtualizarCliente(ClienteModel model)
+        {
+            var clienteAtualizar = BuscarClientePorID(model.ID);
+
+            clienteAtualizar.Nome = model.Nome;
+            clienteAtualizar.Telefone = model.Telefone;
+            clienteAtualizar.Email = model.Email;
+            clienteAtualizar.Carro = model.Carro;
+
+            _context.Cliente.Update(clienteAtualizar);
+            _context.SaveChanges();
+
+        }
 
         public void AdicionarClienteNoBanco(Cliente novoCliente)
         {

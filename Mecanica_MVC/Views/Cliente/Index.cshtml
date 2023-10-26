@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Mecanica_MVC.Models.ClienteModel>
 @{
-    ViewData["Title"] = "Listando Cliente";
+    ViewData["Title"] = "Clientes";
 }
 <h2>@ViewData["Title"]</h2>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="FormCliente01">Adicionar Cliente</a>
 </p>
 <table class="table table-striped">
     <thead>
@@ -22,7 +22,21 @@
             <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
             <td>@Html.DisplayFor(modelItem => item.Email)</td>
             <td>@Html.DisplayFor(modelItem => item.Carro)</td>
+            <td>
+               <a class="btn btn-danger" asp-action="RemoverCliente" asp-route-id="@item.ID">X</a>
+               <a class="btn btn-info" asp-action="AtualizarCliente" asp-route-Nome="@item.Nome"
+                                                                     asp-route-id="@item.ID"
+                                                                     asp-route-Telefone="@item.Telefone"
+                                                                     asp-route-Email="@item.Email"
+                                                                     asp-route-Carro="@item.Carro">A
+               </a>
+            </td>
         </tr>
        }
     </tbody>
 </table>
+
+
+@*<script language="javascript">
+    alert("Testando Javascript");
+</script>*@

@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mecanica_MVC.Repository;
 using Mecanica_MVC.Data;
+using Mecanica_MVC.Models;
 using System.Threading.Tasks;
 
 namespace Mecanica_MVC.Controllers
-{ 
+{
     public class ClienteController : Controller
     {
         private readonly ClienteRepository _clienteRepository = null;
@@ -13,6 +14,7 @@ namespace Mecanica_MVC.Controllers
         {
             _clienteRepository = clienteRepository;
         }
+
 
         //public async Task<IActionResult> Index()
         //{
@@ -25,7 +27,7 @@ namespace Mecanica_MVC.Controllers
         //Testando sem async
         public IActionResult Index()
         {
-            var dados =  _clienteRepository.ListarClientes();
+            var dados = _clienteRepository.ListarClientes();
 
             return View(dados);
         }
@@ -36,6 +38,7 @@ namespace Mecanica_MVC.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken] // evitar crsf
         public IActionResult AddCliente(Cliente model)
         {
             var cliente = new Cliente(model.Nome, model.Telefone, model.Email, model.Carro);
@@ -43,5 +46,47 @@ namespace Mecanica_MVC.Controllers
             _clienteRepository.AdicionarClienteNoBanco(cliente);
             return View("FormCliente01");
         }
+
+        public IActionResult DeletarCliente(ClienteModel model)
+        {
+             return View(model);
+        }
+
+
+        //[HttpPut]
+        //public IActionResult AtualizarCliente(ClienteModel model)
+        //{
+        //    var atualizarCliente = _clienteRepository.BuscarClientePorID(model.ID);
+
+        //    if(atualizarCliente != null)
+        //    {
+        //        return View(atualizarCliente);
+        //    }
+
+        //    return RedirectToAction(nameof(Index));
+        //}
+
+
+        public IActionResult AtualizarCliente(ClienteModel model)
+        {
+            return View(model);
+        }
+
+
+        public IActionResult SalvarClienteAtualizado(ClienteModel model)
+        {
+            _clienteRepository.AtualizarCliente(model);
+           
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult RemoverCliente(ClienteModel model)
+        {
+
+            _clienteRepository.RemoverCliente(model.ID);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
     }
 }

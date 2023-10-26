@@ -1,4 +1,4 @@
-﻿@model Mecanica_MVC.Models.ClienteModel
+﻿@model Mecanica_MVC.Data.Cliente
 @{
     ViewData["Title"] = " Adicionar Cliente";
 }
@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col"> 
         <div class="container-fluid bg-info">
-            <form method="post">
+            <form method="post" asp-action="AddCliente">
                 <div class="form-group row">
                     <div class="col-md-6">
                         <label asp-for="Nome" class="form-label text-white">Nome:</label>
@@ -35,7 +35,8 @@
                     </div>
                 </div>
                 <div class="form-group mt-2">
-                    <input type="submit" class="btn btn-primary" value="Adicionar Cliente">
+                    <input type="submit" class="btn btn-primary" value="Confirmar">
+                    <input type="submit" class="btn btn-primary" value="Voltar" asp-action="Index">
                 </div>
             </form>
         </div>
