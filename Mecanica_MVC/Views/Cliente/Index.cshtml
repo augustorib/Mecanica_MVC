@@ -23,13 +23,19 @@
             <td>@Html.DisplayFor(modelItem => item.Email)</td>
             <td>@Html.DisplayFor(modelItem => item.Carro)</td>
             <td>
-               <a class="btn btn-danger" asp-action="RemoverCliente" asp-route-id="@item.ID">X</a>
-               <a class="btn btn-info" asp-action="AtualizarCliente" asp-route-Nome="@item.Nome"
+               <a class="btn btn-info" asp-action="DetailsCliente" asp-route-Nome="@item.Nome"
                                                                      asp-route-id="@item.ID"
                                                                      asp-route-Telefone="@item.Telefone"
                                                                      asp-route-Email="@item.Email"
-                                                                     asp-route-Carro="@item.Carro">A
+                                                                     asp-route-Carro="@item.Carro"><i class="fa-solid fa-circle-info"></i>
                </a>
+               <a class="btn btn-warning" asp-action="AtualizarCliente" asp-route-Nome="@item.Nome"
+                                                                     asp-route-id="@item.ID"
+                                                                     asp-route-Telefone="@item.Telefone"
+                                                                     asp-route-Email="@item.Email"
+                                                                     asp-route-Carro="@item.Carro"><i class="fa-solid fa-user-pen"></i>
+               </a>
+               <a class="btn btn-danger" asp-action="RemoverCliente" asp-route-id="@item.ID"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>
        }
