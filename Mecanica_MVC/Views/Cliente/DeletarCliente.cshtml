@@ -21,6 +21,14 @@
 
                 <label class="col-form-label">@Html.DisplayNameFor(model => model.Carro)</label>
                 <input class="form-control" type="text"  value="@Html.DisplayFor(model => model.Carro)" disabled>
+
+                
+                <form asp-action="RemoverCliente">
+                    <input type="hidden" asp-for="ID" />
+                    <button type="submit" class="btn btn-danger mt-2">Deletar <i class="fa-solid fa-trash"></i> </button>
+                    <a asp-action="Index" class="btn btn-secondary mt-2">Voltar <i class="fa-solid fa-rotate-left"></i></a>
+                </form>
+     
             </div>
         </div>
     </div>

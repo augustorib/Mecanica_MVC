@@ -47,10 +47,6 @@ namespace Mecanica_MVC.Controllers
             return View("FormCliente01");
         }
 
-        public IActionResult DeletarCliente(ClienteModel model)
-        {
-             return View(model);
-        }
 
 
         //[HttpPut]
@@ -66,6 +62,10 @@ namespace Mecanica_MVC.Controllers
         //    return RedirectToAction(nameof(Index));
         //}
 
+        public IActionResult DetalhesCliente(ClienteModel model)
+        {
+            return View(model);
+        }
 
         public IActionResult AtualizarCliente(ClienteModel model)
         {
@@ -79,6 +79,15 @@ namespace Mecanica_MVC.Controllers
            
             return RedirectToAction(nameof(Index));
         }
+
+
+        public IActionResult DeletarCliente(ClienteModel model)
+        {
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult RemoverCliente(ClienteModel model)
         {
 
