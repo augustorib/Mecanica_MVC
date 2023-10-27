@@ -1,0 +1,27 @@
+﻿@model Mecanica_MVC.Models.ClienteModel
+
+@{
+    ViewData["Title"] = "Detalhes Cliente";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+    <div class="container-fluid">
+        
+        <label asp-for="Nome" class="col-form-label">@Html.DisplayNameFor(model => model.Nome)</label>
+        <input asp-for="Nome" class="form-control" type="text"  disabled>
+
+        <label asp-for="Telefone" class="col-form-label">@Html.DisplayNameFor(model => model.Telefone)</label>
+        <input asp-for="Telefone" class="form-control" type="text" disabled>
+
+
+        <label asp-for="Email" class="col-form-label">@Html.DisplayNameFor(model => model.Email)</label>
+        <input asp-for="Email" class="form-control" type="text" disabled>
+
+
+        <label asp-for="Carro" class="col-form-label">@Html.DisplayNameFor(model => model.Carro)</label>
+        <input asp-for="Carro" class="form-control" type="text" disabled>
+                     
+        <a asp-action="Index" class="btn btn-secondary mt-2">Voltar <i class="fa-solid fa-rotate-left"></i></a>
+
+    </div>
