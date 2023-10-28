@@ -46,39 +46,40 @@ namespace Mecanica_MVC.Repository
 
         //}
 
-        //public async Task<List<Cliente>> ListarClientes()
-        //{
-        //    return await _context.Cliente.OrderBy(cliente => cliente.Nome).ToListAsync();
-        //}
+        // Listar Clientes de forma ordenada pelo nome
+        public async Task<List<Cliente>> ListarClientes()
+        {
+            return await _context.Cliente.OrderBy(cliente => cliente.Nome).ToListAsync();
+        }
 
         //Testando Listagem sem ser assincrono
-        public List<Cliente> ListarClientes()
+        //public List<Cliente> ListarClientes()
 
-        {
-            var allClientes = new List<Cliente>();
+        //{
+        //    var allClientes = new List<Cliente>();
 
-            var clientes = _context.Cliente.ToList();
+        //    var clientes = _context.Cliente.ToList();
 
-            if (clientes?.GetType() != null)
-            {
-                foreach (var cliente in clientes)
-                {
-                    var x = new Cliente()
-                    {
-                        ID = cliente.ID,
-                        Nome = cliente.Nome,
-                        Telefone = cliente.Telefone,
-                        Email = cliente.Email,
-                        Carro = cliente.Carro
-                    };
+        //    if (clientes?.GetType() != null)
+        //    {
+        //        foreach (var cliente in clientes)
+        //        {
+        //            var x = new Cliente()
+        //            {
+        //                ID = cliente.ID,
+        //                Nome = cliente.Nome,
+        //                Telefone = cliente.Telefone,
+        //                Email = cliente.Email,
+        //                Carro = cliente.Carro
+        //            };
 
-                    allClientes.Add(x);
-                }
-            }
+        //            allClientes.Add(x);
+        //        }
+        //    }
 
-            return allClientes;
+        //    return allClientes;
 
-        }
+        //}
 
         public void RemoverCliente(Guid id)
         {

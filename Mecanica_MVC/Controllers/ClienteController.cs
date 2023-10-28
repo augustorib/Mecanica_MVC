@@ -15,21 +15,22 @@ namespace Mecanica_MVC.Controllers
         }
 
 
-        //public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
+        {
+            var dados = await _clienteRepository.ListarClientes();
+
+            return View(dados);
+        }
+
+
+        //Testando sem async
+        //public IActionResult Index()
         //{
-        //   var dados = await _clienteRepository.ListarClientes();
+        //    var dados = _clienteRepository.ListarClientes();
 
         //    return View(dados);
         //}
 
-
-        //Testando sem async
-        public IActionResult Index()
-        {
-            var dados = _clienteRepository.ListarClientes();
-
-            return View(dados);
-        }
         public IActionResult FormCliente01()
         {
             return View();
