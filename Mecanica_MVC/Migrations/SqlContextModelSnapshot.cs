@@ -42,7 +42,7 @@ namespace Mecanica_MVC.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Cliente");
+                    b.ToTable("Cliente", (string)null);
                 });
 
             modelBuilder.Entity("Mecanica_MVC.Models.Funcionario", b =>
@@ -68,7 +68,7 @@ namespace Mecanica_MVC.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Funcionario");
+                    b.ToTable("Funcionario", (string)null);
                 });
 
             modelBuilder.Entity("Mecanica_MVC.Models.Servico", b =>
@@ -94,7 +94,7 @@ namespace Mecanica_MVC.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Servico");
+                    b.ToTable("Servico", (string)null);
                 });
 
             modelBuilder.Entity("Mecanica_MVC.Models.ServicosMecanica", b =>
@@ -113,7 +113,7 @@ namespace Mecanica_MVC.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("ServicosMecanicas");
+                    b.ToTable("ServicosMecanicas", (string)null);
                 });
 #pragma warning restore 612, 618
         }

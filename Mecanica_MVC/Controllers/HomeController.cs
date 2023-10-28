@@ -23,7 +23,7 @@ namespace Mecanica_MVC.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }
