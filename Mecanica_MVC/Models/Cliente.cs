@@ -1,7 +1,6 @@
 ﻿using System;
 
-namespace Mecanica_MVC.Data
-
+namespace Mecanica_MVC.Models
 {
     public class Cliente
     {
@@ -27,5 +26,6 @@ namespace Mecanica_MVC.Data
             Email = email;
             Carro = carro;
         }
+
     }
 }

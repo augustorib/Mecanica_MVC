@@ -16,10 +16,10 @@ namespace Mecanica_MVC.Repository
         {
             _context = context;
         }
-        
+
         //Teste de listar clientes com método assincrono
         //public async Task<List<ClienteModel>> ListarClientes()
-        
+
         //{
         //    var allClientes = new List<ClienteModel>();
 
@@ -27,7 +27,7 @@ namespace Mecanica_MVC.Repository
 
         //    if (clientes?.Any() == true)
         //    {
-        //        foreach(var cliente in clientes)
+        //        foreach (var cliente in clientes)
         //        {
         //            var x = new ClienteModel()
         //            {
@@ -41,24 +41,29 @@ namespace Mecanica_MVC.Repository
         //            allClientes.Add(x);
         //        }
         //    }
-            
+
         //    return allClientes;
-        
+
         //}
 
-        // Testando Listagem sem ser assincrono
-        public List<ClienteModel> ListarClientes()
+        //public async Task<List<Cliente>> ListarClientes()
+        //{
+        //    return await _context.Cliente.OrderBy(cliente => cliente.Nome).ToListAsync();
+        //}
+
+        //Testando Listagem sem ser assincrono
+        public List<Cliente> ListarClientes()
 
         {
-            var allClientes = new List<ClienteModel>();
+            var allClientes = new List<Cliente>();
 
-            var clientes =  _context.Cliente.ToList();
+            var clientes = _context.Cliente.ToList();
 
             if (clientes?.GetType() != null)
             {
                 foreach (var cliente in clientes)
                 {
-                    var x = new ClienteModel()
+                    var x = new Cliente()
                     {
                         ID = cliente.ID,
                         Nome = cliente.Nome,
@@ -99,7 +104,7 @@ namespace Mecanica_MVC.Repository
             return null;
         }
 
-        public void AtualizarCliente(ClienteModel model)
+        public void AtualizarCliente(Cliente model)
         {
             var clienteAtualizar = BuscarClientePorID(model.ID);
 

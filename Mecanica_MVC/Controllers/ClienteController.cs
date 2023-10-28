@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mecanica_MVC.Repository;
-using Mecanica_MVC.Data;
 using Mecanica_MVC.Models;
 using System.Threading.Tasks;
 
@@ -62,18 +61,19 @@ namespace Mecanica_MVC.Controllers
         //    return RedirectToAction(nameof(Index));
         //}
 
-        public IActionResult DetalhesCliente(ClienteModel model)
+        public IActionResult DetalhesCliente(Cliente model)
         {
             return View(model);
         }
 
-        public IActionResult AtualizarCliente(ClienteModel model)
+        public IActionResult AtualizarCliente(Cliente model)
         {
             return View(model);
         }
 
-
-        public IActionResult SalvarClienteAtualizado(ClienteModel model)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SalvarClienteAtualizado(Cliente model)
         {
             _clienteRepository.AtualizarCliente(model);
            
@@ -81,14 +81,14 @@ namespace Mecanica_MVC.Controllers
         }
 
 
-        public IActionResult DeletarCliente(ClienteModel model)
+        public IActionResult DeletarCliente(Cliente model)
         {
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult RemoverCliente(ClienteModel model)
+        public IActionResult RemoverCliente(Cliente model)
         {
 
             _clienteRepository.RemoverCliente(model.ID);
