@@ -32,14 +32,16 @@ namespace Mecanica_MVC
             services.AddControllersWithViews();
 
             services.AddScoped<ClienteRepository, ClienteRepository>();
+            services.AddScoped <SeedingServiceCliente>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SeedingServiceCliente seedingServiceCliente)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingServiceCliente.Seed();
             }
             else
             {
